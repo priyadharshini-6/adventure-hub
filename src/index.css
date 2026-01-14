@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Outdoor Adventure Club - Design System
-   Rugged, natural, adventurous aesthetic */
+/* Outdoor Adventure Club - Design System */
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
 
@@ -86,7 +85,9 @@
     --popover: 160 25% 12%;
     --popover-foreground: 45 25% 95%;
 
+    /* Updated Dark Mode Primary to be lighter */
     --primary: 156 55% 45%;
+    /* Keep foreground dark for contrast on buttons, but manually handle overlays */
     --primary-foreground: 160 30% 8%;
 
     --secondary: 18 60% 50%;
@@ -108,7 +109,8 @@
     --success: 156 60% 45%;
     --success-foreground: 160 30% 8%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(156 50% 35%) 0%, hsl(160 45% 25%) 100%);
+    /* Made the dark mode hero gradient significantly brighter/lighter so text is visible */
+    --gradient-hero: linear-gradient(135deg, hsl(156 60% 60%) 0%, hsl(160 55% 50%) 100%);
     --gradient-overlay: linear-gradient(180deg, hsla(160 30% 5% / 0.8) 0%, hsla(160 30% 5% / 0.5) 100%);
 
     --sidebar-background: 160 25% 10%;
@@ -165,7 +167,7 @@
   .btn-adventure {
     @apply inline-flex items-center justify-center gap-2 font-heading font-semibold uppercase tracking-wider px-6 py-3 rounded-lg transition-all duration-300;
     background: var(--gradient-hero);
-    @apply text-primary-foreground;
+    @apply text-white; /* Force white text even in dark mode */
   }
 
   .btn-adventure:hover {
@@ -188,8 +190,7 @@
 
   /* Text gradients */
   .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background: var(--gradient-hero);
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-emerald-400 dark:from-emerald-300 dark:to-teal-200;
   }
 
   /* Glass effect */

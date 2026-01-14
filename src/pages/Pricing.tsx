@@ -110,13 +110,14 @@ const Pricing = () => {
             {plans.map((plan, index) => (
               <div
                 key={plan.name}
-                className={`relative card-adventure p-8 flex flex-col animate-slide-up ${
+                // Added overflow-visible to prevent "Most Popular" badge from being cut off
+                className={`relative card-adventure p-8 flex flex-col animate-slide-up overflow-visible ${
                   plan.popular ? "border-2 border-primary ring-4 ring-primary/10" : ""
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 hero-gradient text-primary-foreground text-sm font-semibold rounded-full flex items-center gap-1">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 hero-gradient text-primary-foreground text-sm font-semibold rounded-full flex items-center gap-1 whitespace-nowrap z-10">
                     <Star className="w-4 h-4 fill-current" /> Most Popular
                   </div>
                 )}

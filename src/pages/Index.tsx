@@ -81,28 +81,29 @@ const Index = () => {
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl animate-fade-in">
-            <span className="inline-block px-4 py-2 bg-secondary/90 text-secondary-foreground rounded-full text-sm font-semibold mb-6">
+            <span className="inline-block px-4 py-2 bg-secondary/90 text-white rounded-full text-sm font-semibold mb-6">
               🏔️ Adventure Awaits
             </span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               Explore The Wild<br />
               <span className="text-secondary">Together</span>
             </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl">
+            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
               Join our community of outdoor enthusiasts. Experience unforgettable adventures,
               forge lasting friendships, and discover the beauty of nature.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/pricing">
                 <Button size="lg" className="w-full sm:w-auto btn-adventure text-lg px-8">
-                  Join The Club <ArrowRight className="w-5 h-5" />
+                  Join The Club <ArrowRight className="w-5 h-5 rtl-flip ms-2" />
                 </Button>
               </Link>
               <Link to="/events">
+                {/* Added bg-transparent here to fix visibility in light theme */}
                 <Button
                   size="lg"
                   variant="outline"
-                  className="w-full sm:w-auto border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8"
+                  className="w-full sm:w-auto border-2 border-white/50 text-white bg-transparent hover:bg-white/10 hover:text-white text-lg px-8"
                 >
                   View Events
                 </Button>
@@ -112,8 +113,8 @@ const Index = () => {
         </div>
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-          <div className="w-8 h-12 border-2 border-primary-foreground/50 rounded-full flex items-start justify-center p-2">
-            <div className="w-1.5 h-3 bg-primary-foreground/70 rounded-full" />
+          <div className="w-8 h-12 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
+            <div className="w-1.5 h-3 bg-white/70 rounded-full" />
           </div>
         </div>
       </section>
@@ -137,7 +138,7 @@ const Index = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="w-16 h-16 mx-auto mb-4 rounded-2xl hero-gradient flex items-center justify-center transform group-hover:scale-110 transition-transform">
-                  <feature.icon className="w-8 h-8 text-primary-foreground" />
+                  <feature.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="font-heading text-xl font-bold text-foreground mb-2">
                   {feature.title}
@@ -164,8 +165,8 @@ const Index = () => {
               </h2>
             </div>
             <Link to="/events" className="mt-4 md:mt-0">
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                View All Events <ArrowRight className="w-4 h-4 ml-2" />
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+                View All Events <ArrowRight className="w-4 h-4 rtl-flip ms-2" />
               </Button>
             </Link>
           </div>
@@ -183,7 +184,7 @@ const Index = () => {
                     alt={event.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute top-4 right-4 px-3 py-1 bg-secondary text-secondary-foreground text-xs font-semibold rounded-full">
+                  <div className="absolute top-4 right-4 px-3 py-1 bg-secondary text-white text-xs font-semibold rounded-full">
                     {event.difficulty}
                   </div>
                 </div>
@@ -204,7 +205,7 @@ const Index = () => {
                       {event.spots} spots left
                     </span>
                     <span className="text-primary font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                      Learn More <ArrowRight className="w-4 h-4" />
+                      Learn More <ArrowRight className="w-4 h-4 rtl-flip" />
                     </span>
                   </div>
                 </div>
@@ -239,10 +240,10 @@ const Index = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
-                  <h3 className="font-heading text-lg md:text-xl font-bold text-primary-foreground">
+                  <h3 className="font-heading text-lg md:text-xl font-bold text-white">
                     {activity.title}
                   </h3>
-                  <p className="text-primary-foreground/80 text-sm">
+                  <p className="text-white/80 text-sm">
                     {activity.count} events this year
                   </p>
                 </div>
@@ -262,24 +263,25 @@ const Index = () => {
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Ready For Your Next Adventure?
             </h2>
-            <p className="text-lg text-primary-foreground/90 mb-8">
+            <p className="text-lg text-white/90 mb-8">
               Join hundreds of adventurers who have already discovered the joy of exploring
               nature with our community. Your journey begins today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/register">
-                <Button size="lg" className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground text-lg px-8">
-                  Become A Member <ArrowRight className="w-5 h-5 ml-2" />
+                <Button size="lg" className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-white text-lg px-8">
+                  Become A Member <ArrowRight className="w-5 h-5 ms-2 rtl-flip" />
                 </Button>
               </Link>
               <Link to="/contact">
+                {/* Added bg-transparent here too */}
                 <Button
                   size="lg"
                   variant="outline"
-                  className="w-full sm:w-auto border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8"
+                  className="w-full sm:w-auto border-2 border-white text-white bg-transparent hover:bg-white/10 text-lg px-8"
                 >
                   Contact Us
                 </Button>

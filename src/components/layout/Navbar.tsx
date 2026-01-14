@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Mountain, Sun, Moon } from "lucide-react";
+import { Menu, X, ChevronDown, Mountain, Sun, Moon, Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -12,11 +12,29 @@ import {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [isRTL, setIsRTL] = useState(false);
   const location = useLocation();
 
+  // Initialize theme and RTL state based on document
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains("dark"));
+    setIsRTL(document.documentElement.dir === "rtl");
+  }, []);
+
   const toggleTheme = () => {
-    setIsDark(!isDark);
-    document.documentElement.classList.toggle("dark");
+    const newDark = !isDark;
+    setIsDark(newDark);
+    if (newDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
+  const toggleRTL = () => {
+    const newRTL = !isRTL;
+    setIsRTL(newRTL);
+    document.documentElement.dir = newRTL ? "rtl" : "ltr";
   };
 
   const isActive = (path: string) => location.pathname === path;
@@ -86,13 +104,26 @@ const Navbar = () => {
 
           {/* Right Section */}
           <div className="flex items-center gap-2">
+            {/* Theme Toggle */}
             <Button
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
               className="text-foreground hover:text-primary"
+              title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </Button>
+
+            {/* RTL Toggle */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleRTL}
+              className="text-foreground hover:text-primary"
+              title={isRTL ? "Switch to LTR" : "Switch to RTL"}
+            >
+              <Languages className="w-5 h-5" />
             </Button>
 
             <Link to="/dashboard" className="hidden md:block">

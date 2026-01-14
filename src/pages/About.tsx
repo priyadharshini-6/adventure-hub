@@ -12,21 +12,29 @@ const About = () => {
       name: "Sarah Johnson",
       role: "Founder & Lead Guide",
       bio: "15 years of mountaineering experience. Certified wilderness first responder.",
+      // Woman hiker/guide portrait
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200&h=200",
     },
     {
       name: "Mike Chen",
       role: "Kayak & Water Sports",
       bio: "Former Olympic kayaker. Passionate about water safety education.",
+      // Man outdoors portrait
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200&h=200",
     },
     {
       name: "Emma Williams",
       role: "Rock Climbing Instructor",
       bio: "AMGA certified guide. Climbed peaks across 4 continents.",
+      // Woman climber/outdoors portrait
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200&h=200",
     },
     {
       name: "David Park",
       role: "Trail Running Coach",
       bio: "Ultra-marathon runner. Completed over 50 trail races.",
+      // Man runner/outdoors portrait
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200&h=200",
     },
   ];
 
@@ -69,13 +77,13 @@ const About = () => {
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl text-center mx-auto">
-            <span className="inline-block px-4 py-2 bg-secondary/90 text-secondary-foreground rounded-full text-sm font-semibold mb-6">
+            <span className="inline-block px-4 py-2 bg-secondary/90 text-white rounded-full text-sm font-semibold mb-6">
               Our Story
             </span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Connecting People Through Adventure
             </h1>
-            <p className="text-lg text-primary-foreground/90">
+            <p className="text-lg text-white/90">
               Since 2014, we've been bringing outdoor enthusiasts together to explore,
               discover, and create unforgettable memories in nature.
             </p>
@@ -122,7 +130,7 @@ const About = () => {
                 alt="Hiking group"
                 className="w-full rounded-2xl"
               />
-              <div className="absolute -bottom-6 -left-6 w-48 h-48 rounded-xl overflow-hidden border-4 border-background shadow-xl hidden md:block">
+              <div className="absolute -bottom-6 -left-6 w-48 h-48 rounded-xl overflow-hidden border-4 border-background shadow-xl hidden md:block rtl:-left-auto rtl:-right-6">
                 <img
                   src={kayaking}
                   alt="Kayaking"
@@ -153,7 +161,7 @@ const About = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="w-16 h-16 mx-auto mb-6 rounded-2xl hero-gradient flex items-center justify-center">
-                  <value.icon className="w-8 h-8 text-primary-foreground" />
+                  <value.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="font-heading text-xl font-bold text-foreground mb-3">
                   {value.title}
@@ -185,7 +193,14 @@ const About = () => {
                 className="card-adventure p-6 text-center animate-scale-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-muted" />
+                {/* Updated Image Section using Unsplash URLs */}
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-primary/20">
+                  <img 
+                    src={member.image} 
+                    alt={member.name} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <h3 className="font-heading text-lg font-bold text-foreground">
                   {member.name}
                 </h3>
@@ -214,7 +229,7 @@ const About = () => {
           </div>
           <div className="max-w-3xl mx-auto">
             <div className="relative">
-              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border" />
+              <div className="absolute start-4 md:start-1/2 top-0 bottom-0 w-0.5 bg-border" />
               {milestones.map((milestone, index) => (
                 <div
                   key={milestone.year}
@@ -222,13 +237,13 @@ const About = () => {
                     index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
                 >
-                  <div className={`flex-1 ${index % 2 === 0 ? "md:text-right" : "md:text-left"} pl-12 md:pl-0`}>
+                  <div className={`flex-1 ${index % 2 === 0 ? "md:text-end" : "md:text-start"} ps-12 md:ps-0`}>
                     <div className="font-heading text-xl font-bold text-primary">
                       {milestone.year}
                     </div>
                     <p className="text-muted-foreground">{milestone.event}</p>
                   </div>
-                  <div className="absolute left-4 md:relative md:left-auto w-2 h-2 bg-primary rounded-full z-10" />
+                  <div className="absolute start-4 md:relative md:start-auto w-2 h-2 bg-primary rounded-full z-10 -translate-x-1 md:translate-x-0" />
                   <div className="flex-1 hidden md:block" />
                 </div>
               ))}
@@ -240,15 +255,15 @@ const About = () => {
       {/* CTA Section */}
       <section className="py-20 hero-gradient">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-4">
             Ready To Join Our Community?
           </h2>
-          <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
             Become part of a community that values adventure, friendship, and the great outdoors.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/register">
-              <Button size="lg" className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground text-lg px-8">
+              <Button size="lg" className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-white text-lg px-8">
                 Become A Member
               </Button>
             </Link>
@@ -256,7 +271,7 @@ const About = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8"
+                className="w-full sm:w-auto border-2 border-white text-white !bg-transparent hover:bg-white/10 text-lg px-8"
               >
                 Get In Touch
               </Button>

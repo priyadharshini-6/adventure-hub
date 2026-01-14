@@ -34,19 +34,19 @@ const Home2 = () => {
     <Layout>
       {/* Hero Section - Alternative Style */}
       <section className="relative min-h-[95vh] flex items-center bg-card overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
+        <div className="absolute top-0 end-0 w-1/2 h-full hidden lg:block">
           <img
             src={heroImage}
             alt="Mountain adventure"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-card via-card/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-card via-card/50 to-transparent ltr:bg-gradient-to-r rtl:bg-gradient-to-l" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="lg:w-1/2 lg:pr-12">
+          <div className="lg:w-1/2 lg:pe-12">
             <div className="flex items-center gap-2 mb-6">
               <div className="w-12 h-12 rounded-xl hero-gradient flex items-center justify-center">
-                <Mountain className="w-6 h-6 text-primary-foreground" />
+                <Mountain className="w-6 h-6 text-white" />
               </div>
               <span className="font-heading text-2xl font-bold text-foreground">
                 Adventure Club
@@ -54,7 +54,7 @@ const Home2 = () => {
             </div>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
               Find Your
-              <span className="block text-gradient">Wild Side</span>
+              <span className="block text-gradient py-2">Wild Side</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-xl">
               Transform weekends into adventures. Join a community that believes
@@ -64,7 +64,7 @@ const Home2 = () => {
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Link to="/register">
                 <Button size="lg" className="w-full sm:w-auto btn-adventure text-lg px-8">
-                  Start Your Journey <ArrowRight className="w-5 h-5" />
+                  Start Your Journey <ArrowRight className="w-5 h-5 rtl-flip ms-2" />
                 </Button>
               </Link>
               <Link to="/about">
@@ -80,7 +80,7 @@ const Home2 = () => {
             {/* Trust indicators */}
             <div className="flex items-center gap-6 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
+                <div className="flex -space-x-2 rtl:space-x-reverse">
                   {[1, 2, 3, 4].map((i) => (
                     <div
                       key={i}
@@ -94,7 +94,7 @@ const Home2 = () => {
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Zap key={i} className="w-4 h-4 text-secondary fill-secondary" />
                 ))}
-                <span className="ml-1">4.9 rating</span>
+                <span className="ms-1">4.9 rating</span>
               </div>
             </div>
           </div>
@@ -174,7 +174,7 @@ const Home2 = () => {
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-success/20 flex items-center justify-center">
-                      <svg className="w-4 h-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="w-4 h-4 text-success rtl-flip" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
@@ -184,7 +184,7 @@ const Home2 = () => {
               </ul>
               <Link to="/about">
                 <Button className="btn-adventure">
-                  More About Us <ArrowRight className="w-5 h-5" />
+                  More About Us <ArrowRight className="w-5 h-5 rtl-flip ms-2" />
                 </Button>
               </Link>
             </div>
@@ -216,24 +216,25 @@ const Home2 = () => {
       {/* CTA Banner */}
       <section className="py-20 hero-gradient">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-4">
             Your Next Adventure Is Waiting
           </h2>
-          <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
             Don't just dream about adventure – live it. Join our community today and
             start creating memories that will last a lifetime.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/pricing">
-              <Button size="lg" className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground text-lg px-8">
+              <Button size="lg" className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-white text-lg px-8">
                 View Membership Plans
               </Button>
             </Link>
             <Link to="/events">
+              {/* Added bg-transparent here to fix visibility in light theme */}
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8"
+                className="w-full sm:w-auto border-2 border-white text-white bg-transparent hover:bg-white/10 text-lg px-8"
               >
                 Browse Events
               </Button>
